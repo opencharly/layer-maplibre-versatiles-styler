@@ -1,7 +1,7 @@
 version: 2026.232.0520
 maplibre-versatiles-styler:
     candy:
-        version: 2026.144.1443
+        version: 2026.243.0100
         description: |
             Bundles the MapLibre VersaTiles styler control locally into the image so the map UI loads it without runtime CDN access.
             maplibre-versatiles-styler is a MapLibre GL JS control that adds an
@@ -15,7 +15,7 @@ maplibre-versatiles-styler:
             Observable by the install directory and at least one non-empty
             JavaScript bundle landing there, plus the node/npm bundling toolchain.
         require:
-            - '@github.com/opencharly/layer-supervisord:v2026.235.2056'
+            - '@github.com/opencharly/layer-supervisord:v2026.240.0121'
         distro:
             arch:
                 package:
