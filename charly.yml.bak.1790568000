@@ -1,5 +1,7 @@
+version: 2026.232.0520
 maplibre-versatiles-styler:
     candy:
+        version: 2026.243.0100
         description: |
             Bundles the MapLibre VersaTiles styler control locally into the image so the map UI loads it without runtime CDN access.
             maplibre-versatiles-styler is a MapLibre GL JS control that adds an
@@ -123,6 +125,7 @@ maplibre-versatiles-styler:
               package:
                 package: npm
                 installed: true
+
 maplibre-versatiles-styler-skill:
     skill:
         name: maplibre-versatiles-styler
@@ -133,9 +136,9 @@ maplibre-versatiles-styler-skill:
             MUST be invoked before building, deploying, or troubleshooting the maplibre-versatiles-styler layer.
         content: |-
             # maplibre-versatiles-styler — interactive style-switcher control
-
+            
             ## Layer properties
-
+            
             | Property | Value |
             |----------|-------|
             | Dependencies | `supervisord` (transitive; no service of its own) |
@@ -143,9 +146,9 @@ maplibre-versatiles-styler-skill:
             | Build deps | nodejs, npm, curl, jq |
             | Install path | `/opt/maplibre-versatiles-styler/` |
             | Re-exported at | `/opt/versatiles-frontend/styler/` (by the versatiles-frontend layer) |
-
+            
             ## Usage pattern (in the notebook cell)
-
+            
             ```javascript
             // Loaded via <script src="/styler/maplibre-versatiles-styler.umd.js" defer></script>
             window.addEventListener('load', () => {
@@ -154,37 +157,37 @@ maplibre-versatiles-styler-skill:
               }
             });
             ```
-
+            
             The control attaches as a MapLibre `IControl` and renders a sidebar
             widget on the right edge of the map. Operators can:
-
+            
             - Click a preset (colorful, eclipse, graybeard, …) to swap styles
             - Adjust a color picker to recolor the entire map palette
             - Change the label language (overrides the `language: 'en'` option
               passed to the style generator at construction time)
             - Toggle satellite-imagery layers
             - Copy the resulting style JSON to clipboard for use in other tools
-
+            
             ## Two-tier install
-
+            
             Same pattern as `/charly-versa:versatiles-style`:
-
+            
             1. **Tier 1**: GitHub release tarball if available.
             2. **Tier 2** (fallback): `npm install maplibre-versatiles-styler` and
                copy the package's `dist/` directory.
-
+            
             The check probe is lenient about the exact filename (the package
             ships both ESM and UMD builds across multiple paths) — it asserts
             that at least one non-empty `*.js` file exists under
             `/opt/maplibre-versatiles-styler/`.
-
+            
             ## Check probes
-
+            
             Build-scope:
             - `maplibre-versatiles-styler-bundle-present` — at least one non-empty `*.js` file exists under `/opt/maplibre-versatiles-styler/`
-
+            
             ## Cross-references
-
+            
             - `/charly-versa:versa` — image composing this layer
             - `/charly-versa:versatiles-style` — the style generator whose output
               this control mutates at runtime
